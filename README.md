@@ -1,6 +1,7 @@
 Hello!
-In order to run this project, you need to have Java 11, node and angular cli.
-The back-end application is built using SpringBoot and front-end using Angular 9.
+In order to run this project, you need to have **Java 11**, **node** and **angular cli**.
+
+The back-end application is built using **SpringBoot** and front-end using Angular 9.
 
 First, on the project root folder, run mvn clean install.
 
