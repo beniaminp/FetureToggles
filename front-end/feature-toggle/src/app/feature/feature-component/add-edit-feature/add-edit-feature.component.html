@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>{{data.id ? 'Edit ' + data.displayName : 'Add'}}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field>
+      <input matInput type="text" formControlName="displayName" required/>
+      <mat-label>Display name</mat-label>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="technicalName" required/>
+      <mat-label>Technical name</mat-label>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Expires on</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="expiresOn">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput type="text" formControlName="description" required></textarea>
+      <mat-label>Description</mat-label>
+    </mat-form-field>
+    <mat-checkbox formControlName="inverted">Inverted</mat-checkbox>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="onSubmit()" cdkFocusInitial>Save</button>
+</div>

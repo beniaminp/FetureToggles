@@ -1,0 +1,17 @@
+<div class="demo-button-container">
+  <button mat-raised-button (click)="addData()" class="demo-button">
+    Add data
+  </button>
+</div>
+
+<mat-list>
+  <mat-list-item *ngFor="let customer of dataSource">
+    <span style="margin-right: 5%;">{{customer.name}}</span>
+    <button mat-raised-button (click)="editData(customer)" style="float: right">
+      Edit
+    </button>
+    <button mat-raised-button (click)="deleteCustomer(customer.id)" style="float:right;">
+      Delete
+    </button>
+  </mat-list-item>
+</mat-list>

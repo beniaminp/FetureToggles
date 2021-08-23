@@ -1,0 +1,31 @@
+<h1 mat-dialog-title *ngIf="data.id">
+  {{data.customer.name}} - {{data.featureToggle.displayName}}
+</h1>
+<div mat-dialog-content>
+  <div *ngIf="!data.id">
+    <mat-label>Customer</mat-label>
+    <mat-select [(value)]="selectedCustomer.id">
+      <mat-option *ngFor="let customer of customers" [value]="customer.id">
+        {{customer.name}}
+      </mat-option>
+    </mat-select>
+  </div>
+  <div *ngIf="!data.id">
+    <mat-label>Feature Toggle</mat-label>
+    <mat-select [(value)]="selectedFeatureToggle.id">
+      <mat-option *ngFor="let featureToggle of featureToggles" [value]="featureToggle.id">
+        {{featureToggle.displayName}}
+      </mat-option>
+    </mat-select>
+  </div>
+  <div>
+    <mat-label>Expires on</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="expiresOn">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="onSubmit()" cdkFocusInitial>Save</button>
+</div>
